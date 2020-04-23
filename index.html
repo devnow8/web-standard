@@ -422,5 +422,42 @@
 		<!-- //footer-->
 	</div>
 	<!-- //wrap-->
+
+	<!-- 스크립트 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+        //버튼 클릭시 전체 메뉴 보이게.
+        $(".tit .btn").click(function(e){
+            e.preventDefault();
+            //$("#cont_nav").css("display","block");
+            //$("#cont_nav").show();
+            //$("#cont_nav").fadeIn();
+            //$("#cont_nav").slideDown();
+            $("#cont_nav").toggle();
+            //$("#cont_nav").fadetoggle();
+            //$("#cont_nav").slidtoggle();
+            $(this).toggleClass("on");
+        });
+    </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

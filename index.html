@@ -342,14 +342,14 @@
                                         </ul>
 				                    </li>
 				                    <li><a href="#">공지사항2</a>
-				                        <ul style="display: none;">
+				                        <ul>
                                             <li><a href="#">두번째 공지사항 탭메뉴 목록입니다</a></li>
                                             <li><a href="#">두번째 공지사항 탭메뉴 목록입니다</a></li>
                                             <li><a href="#">두번째 공지사항 탭메뉴 목록입니다</a></li>
 				                        </ul>
 				                    </li>
 				                    <li><a href="#">공지사항3</a>
-				                        <ul style="display: none;">
+				                        <ul>
                                             <li><a href="#">세번째 공지사항 탭메뉴 목록입니다</a></li>
                                             <li><a href="#">세번째 공지사항 탭메뉴 목록입니다</a></li>
                                             <li><a href="#">세번째 공지사항 탭메뉴 목록입니다</a></li>
@@ -385,6 +385,7 @@
                                     </ul>
                                 </div>
                                 <div class="gallery_img">
+<!--
                                     <ul>
                                         <li><a href="#"><img src="img/gallery01.jpg" alt="갤러리1"></a></li>
                                         <li><a href="#"><img src="img/gallery02.jpg" alt="갤러리2"></a></li>
@@ -392,6 +393,12 @@
                                         <li><a href="#"><img src="img/gallery04.jpg" alt="갤러리4"></a></li>
                                         <li><a href="#"><img src="img/gallery05.jpg" alt="갤러리5"></a></li>
                                     </ul>
+-->
+                                    <div><a href="#"><img src="img/gallery01.jpg" alt="갤러리1"></a></div>
+                                    <div><a href="#"><img src="img/gallery02.jpg" alt="갤러리2"></a></div>
+                                    <div><a href="#"><img src="img/gallery03.jpg" alt="갤러리3"></a></div>
+                                    <div><a href="#"><img src="img/gallery04.jpg" alt="갤러리4"></a></div>
+                                    <div><a href="#"><img src="img/gallery05.jpg" alt="갤러리5"></a></div>
                                 </div>
 				            </div>
 				            <!-- //갤러리 -->
@@ -440,6 +447,18 @@
 	<script src="js/slick.min.js"></script>
 	<script type="text/javascript">
 
+        //탭메뉴
+        var $tab_list = $(".tab_menu");
+        $tab_list.find("ul ul").hide();
+        $tab_list.find("li.active > ul").show();
+
+        function tabMenu(e){
+            e.preventDefault();
+            var $this = $(this);
+            $this.next("ul").show().parent("li").addClass("active").siblings("li").removeClass("active").find("ul").hide();
+        }
+        $tab_list.find("ul>li>a").click(tabMenu).focus(tabMenu);
+
         //배너
         $(".ban").slick({
             infinite: true,
@@ -448,6 +467,10 @@
             autoplay: true,
             dots: true
         });
+
+        //갤러리
+        $(".gallery_img").slick();
+
 
         //버튼 클릭시 전체 메뉴 보이게.
         $(".tit .btn").click(function(e){

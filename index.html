@@ -377,12 +377,19 @@
 				            <div class="gallery">
 				                <h4>포트폴리오</h4>
                                 <div class="gallery_btn">
+<!--
                                     <ul>
                                         <li class="gb_icon1"><a href="#"><span class="ir_pm">시작</span></a></li>
                                         <li class="gb_icon2"><a href="#"><span class="ir_pm">정지</span></a></li>
                                         <li class="gb_icon3"><a href="#"><span class="ir_pm">이전이미지</span></a></li>
                                         <li class="gb_icon4"><a href="#"><span class="ir_pm">다음이미지</span></a></li>
                                     </ul>
+-->
+                               <button class="gb_icon1 play"><span class="ir_pm">시작</span></button>
+                               <button class="gb_icon2 pause"><span class="ir_pm">정지</span></button>
+                               <button class="gb_icon3 prev"><span class="ir_pm">이전이미지</span></button>
+                               <button class="gb_icon4 next"><span class="ir_pm">다음이미지</span></button>
+
                                 </div>
                                 <div class="gallery_img">
 <!--
@@ -469,7 +476,28 @@
         });
 
         //갤러리
-        $(".gallery_img").slick();
+        $(".gallery_img").slick({
+            arrows: false,
+            fade: true,
+            autoplay: true,
+            autoplaySpeed: 2000
+        });
+
+        $(".play").click(function(){
+            $(".gallery_img").slick("slickPlay");
+        })
+
+        $(".pause").click(function(){
+            $(".gallery_img").slick("slickPause");
+        })
+
+        $(".prev").click(function(){
+            $(".gallery_img").slick("slickPrev");
+        })
+
+        $(".next").click(function(){
+            $(".gallery_img").slick("slickNext");
+        })
 
 
         //버튼 클릭시 전체 메뉴 보이게.
